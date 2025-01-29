@@ -40,8 +40,8 @@ class FunnelModelBuilder(ModelBuilder):
         variant_column: str = Field(
             ..., description="Column name of the variant variables."
         ),
-        outcome_column: str = Field(
-            ..., description="Column name of the outcome variable."
+        count_column: str = Field(
+            ..., description="Column name of the count variable."
         ),
         model_config: dict | None = Field(None, description="Model configuration."),
         sampler_config: dict | None = Field(None, description="Sampler configuration."),
@@ -49,7 +49,7 @@ class FunnelModelBuilder(ModelBuilder):
         self.step_column: str = step_column
         self.variant_column: str = variant_column
         self.step_order: list[str] = step_order
-        self.outcome_column: str = outcome_column
+        self.count_column: str = count_column
         self.n_step: int = len(step_order)
 
         self.X: pd.DataFrame
